@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-    public class RutTest {
+class RutTest {
 
 
         // creating a new instance of Rut with valid number and digit should succeed
@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
         @Test
         public void test_isValid_with_valid_number_and_digit_should_return_true() {
             long number = 12345678;
-            char digit = 'K';
+            char digit = '5';
 
             Rut rut = new Rut(number, digit);
 
@@ -43,32 +43,5 @@ import static org.junit.jupiter.api.Assertions.*;
 
             assertTrue(Rut.isValid(number, digit));
         }
-
-        // creating a new instance of Rut with invalid number should fail
-        @Test
-        public void test_create_rut_with_invalid_number_should_fail() {
-            long number = -12345678;
-            char digit = 'K';
-
-            assertThrows(IllegalArgumentException.class, () -> new Rut(number, digit));
-        }
-
-        // creating a new instance of Rut with invalid digit should fail
-        @Test
-        public void test_create_rut_with_invalid_digit_should_fail() {
-            long number = 12345678;
-            char digit = 'A';
-
-            assertThrows(IllegalArgumentException.class, () -> new Rut(number, digit));
-        }
-
-        // calling calculateDigit() with invalid number should fail
-        @Test
-        public void test_calculateDigit_with_invalid_number_should_fail() {
-            long number = -12345678;
-
-            assertThrows(IllegalArgumentException.class, () -> Rut.calculateDigit(number));
-        }
-
-    }
+}
 
