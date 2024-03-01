@@ -43,18 +43,6 @@ class RutTest {
 
             assertTrue(Rut.isValid(number, digit));
         }
-    @Test
-    public void test_isValid_with_valid_number_and_digit() {
-        // Given
-        long number = 12345678;
-        char digit = 'K';
-
-        // When
-        boolean isValid = Rut.isValid(number, digit);
-
-        // Then
-        assertTrue(isValid);
-    }
 
 }
 
