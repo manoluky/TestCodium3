@@ -67,5 +67,16 @@ class RutTest {
         // Then
         assertFalse(isValid);
     }
+    @Test
+    public void test_valueOf_with_empty_string_should_return_null() {
+        // Given
+        String rutEmpty = "";
+
+        // When
+        Rut rut = Rut.valueOf(rutEmpty);
+
+        // Then
+        assertNull(rut);
+    }
 }
 
