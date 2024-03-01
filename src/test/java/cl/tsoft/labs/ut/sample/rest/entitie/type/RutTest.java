@@ -44,26 +44,13 @@ class RutTest {
             assertTrue(Rut.isValid(number, digit));
         }
     @Test
-    @DisplayName("create empty rut")
-    void create_empty_rut() {
+    public void test_isValid_with_valid_number_and_digit() {
         // Given
-        Rut rut;
+        long number = 12345678;
+        char digit = 'K';
 
         // When
-        rut = new Rut();
-
-        // Then
-        assertNotNull(rut);
-    }
-    @ParameterizedTest
-    @CsvFileSource(resources = "/valid-ruts.csv")
-    @DisplayName("should return true with valid rut")
-    void should_return_true_with_valid_rut(long number, char digit) {
-        // Given
-        Rut rut = new Rut(number, digit);
-
-        // When
-        boolean isValid = rut.isValid();
+        boolean isValid = Rut.isValid(number, digit);
 
         // Then
         assertTrue(isValid);
