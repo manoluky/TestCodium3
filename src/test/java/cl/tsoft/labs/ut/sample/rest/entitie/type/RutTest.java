@@ -78,5 +78,52 @@ class RutTest {
         // Then
         assertNull(rut);
     }
+    @Test
+    public void test_valueOf_with_string_with_more_than_8_digits_should_fail() {
+        // Given
+        String rutString = "123456789-K";
+
+        // When
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Rut.valueOf(rutString));
+
+        // Then
+        assertEquals("rut has an invalid format", exception.getMessage());
+    }
+    @Test
+    public void test_invalid_digit_should_return_false() {
+        // Given
+        long number = 12345678;
+        char digit = 'A';
+
+        // When
+        boolean isValid = Rut.isValid(number, digit);
+
+        // Then
+        assertFalse(isValid);
+    }
+    @Test
+    public void test_isValid_with_number_less_than_minimum_valid_number_should_fail() {
+        // Given
+        long number = 0;
+        char digit = 'K';
+
+        // When
+        boolean isValid = Rut.isValid(number, digit);
+
+        // Then
+        assertFalse(isValid);
+    }
+    @Test
+    public void test_isValid_with_number_greater_than_maximum_valid_number_should_fail() {
+        // Given
+        long number = 100000000;
+        char digit = '0';
+
+        // When
+        boolean isValid = Rut.isValid(number, digit);
+
+        // Then
+        assertFalse(isValid);
+    }
 }
 
