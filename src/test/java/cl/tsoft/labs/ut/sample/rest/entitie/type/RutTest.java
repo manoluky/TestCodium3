@@ -125,5 +125,6 @@ class RutTest {
         // Then
         assertFalse(isValid);
     }
+
 }
 
