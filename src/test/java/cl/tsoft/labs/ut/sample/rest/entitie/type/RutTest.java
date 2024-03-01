@@ -43,6 +43,29 @@ class RutTest {
 
             assertTrue(Rut.isValid(number, digit));
         }
+    @Test
+    public void test_isValid_with_minimum_valid_number_and_digit() {
+        // Given
+        long number = 1;
+        char digit = '0';
 
+        // When
+        boolean isValid = Rut.isValid(number, digit);
+
+        // Then
+        assertFalse(isValid);
+    }
+    @Test
+    public void test_isValid_with_maximum_valid_number_and_digit() {
+        // Given
+        long number = 99999999;
+        char digit = 'K';
+
+        // When
+        boolean isValid = Rut.isValid(number, digit);
+
+        // Then
+        assertFalse(isValid);
+    }
 }
 
